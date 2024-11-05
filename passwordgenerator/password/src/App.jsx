@@ -1,20 +1,37 @@
-import { useState,useCallback } from 'react'
+import { useState} from 'react'
 
-import './App.css'
+
 
 function App() {
-  const[Length , setLength] = useState(8);
-  const[Password , setPassword] = useState('');
-  const [numAllowed , setnumAllowed] = useState("false");
-  const [charAllowed , setcharAllowed] = useState("false");
   
-  const passwordGenerator = useCallback(()=>{
-    
-  },[length,numAllowed,charAllowed,setPassword])
+  const [buttontext, setbuttontext] = useState("button 2")
+  const [swap,setswap] = useState('false')
+
+  const handlefirstbutton = () =>{
+       setbuttontext("text change")
+  }
+
+  const handlesecondbutton = ()=>{
+    setswap('!true')
+  }
   return (
-    <>
-      <h1 className='text-4xl text-center text-white'>Password Generator </h1>
-    </>
+    <div className="flex justify-center items-center">
+    <button
+      onClick={handlefirstbutton}
+      className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200 items-center"
+    >
+      Button 1
+    </button>
+    <button
+      onClick={handlesecondbutton}
+      className="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-200"
+    >
+      {buttontext}
+    </button>
+  </div>
+       
+        
+    
   )
 }
 
